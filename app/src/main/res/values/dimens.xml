@@ -10,4 +10,6 @@
     <dimen name="margin_top_button">350dp</dimen>
     <dimen name="margin_top_button_layout_land">0dp</dimen>
     <dimen name="margin_top_button_zero_layout_land">10dp</dimen>
+    <dimen name="width_button_settings">60dp</dimen>
+    <dimen name="height_button_settings">60dp</dimen>
 </resources>

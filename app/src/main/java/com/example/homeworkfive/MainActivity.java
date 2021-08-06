@@ -1,5 +1,6 @@
 package com.example.homeworkfive;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     static String TAG = "displayText";
-
+    private static int REQ = 1;
     TextView textView;
 
     Button buttonOne;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonComma;
     Button buttonDot;
     Button buttonEquals;
+    Button buttonSettings;
 
     com.example.homeworkfive.DisplayText displayText;
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initListener() {
+        buttonSettings.setOnClickListener(this);
         buttonOne.setOnClickListener(this);
         buttonTwo.setOnClickListener(this);
         buttonThree.setOnClickListener(this);
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         textView = findViewById(R.id.text_view);
 
+        buttonSettings = findViewById(R.id.button_settings);
         buttonOne = findViewById(R.id.button_one);
         buttonTwo = findViewById(R.id.button_two);
         buttonThree = findViewById(R.id.button_three);
@@ -170,10 +174,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 displayText.setText("=");
                 textView.setText(displayText.getText());
                 break;
+            case R.id.button_settings:
+                Intent runSettings = new Intent(MainActivity.this, MainActivitySettings.class
+                );
+                startActivityForResult(runSettings, REQ);
+                break;
             default:
                 break;
         }
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        switch (requestCode) {
+            case 1:
+                setTheme(R.style.theme1);
+                break;
+            case 2:
+                setTheme(R.style.theme2);
+                break;
+        }
+    }
 }

@@ -13,4 +13,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="theme1" parent="Theme.HomeWorkFive" />
+    <style name="theme2" parent="Theme.HomeWorkFive">
+        <item name="android:textColor">@color/IndianRed</item>
+        <item name="backgroundColor">@color/LightCoral</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+    </style>
 </resources>
